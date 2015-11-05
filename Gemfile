@@ -34,6 +34,9 @@ end
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.0.6'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
