@@ -101,7 +101,8 @@
       <%= comment.message %>
       <small><%= comment.user.email %></small>
     </blockquote>
-  </div>
+  
+</div>
 <% end %>
 
 <!-- Photos Modal -->
@@ -134,7 +135,15 @@
 
 
 <% @place.photos.each do |photo| %>
-  <%= image_tag photo.picture %>
+<div class="col-xs-12 col-sm-6">
+  <div>
+    <blockquote>
+  <b><%= image_tag photo.picture %></b> 
+
   <br />
+
   <%= photo.caption %>
+    </blockquote>
+  
+</div>
 <% end %>
