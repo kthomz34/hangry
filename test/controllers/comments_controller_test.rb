@@ -9,7 +9,7 @@ class CommentsControllerTest < ActionController::TestCase
    	place = FactoryGirl.create(:place, :user => user)
 
    	assert_nil Comment.last
-   		post :create, :place_id => place.id, :comment => { :message => 'I have had better', :rating => '1_star' 
+   		post :create, :place_id => place.id, :comment => { :message => 'I have had better', :rating => 'one star' 
               }
    	
 
