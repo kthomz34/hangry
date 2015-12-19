@@ -6,20 +6,19 @@ class CommentsControllerTest < ActionController::TestCase
    	user = FactoryGirl.create(:user)
    	sign_in user
 
-   	place = FactoryGirl.create(:place)
+   	place = FactoryGirl.create(:place, :user => user)
 
-   	assert_difference 'place.comment.count' do
-   		post :create, :place_id => place.id, :comment => { 
-                :message => 'I have had better',
-                :rating => '1_star' 
+   	assert_nil Comment.last
+   		post :create, :place_id => place.id, :comment => { :message => 'I have had better', :rating => '1_star' 
               }
-   	end
+   	
 
 	 assert_redirected_to place_path(place)
-	 assert_equal 1, user.comments.count  
+   comment = Comment.last # proves a comment is in the db
+	 assert_not_nil comment  
 
-    comment = user.comments.first
-    assert_equal 'I have had better',
+    
+    assert_equal 'I have had better', comment.message #check the message passed
     assert_equal 'one star', comment.rating 
     end 
 
